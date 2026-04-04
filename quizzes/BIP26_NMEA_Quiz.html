@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NMEA Sentence Quiz | BIP26</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',sans-serif; background:linear-gradient(135deg,#0d1b2a,#1b3a4b,#1a2a4a); min-height:100vh; padding:20px; }
+.container { max-width:860px; margin:0 auto; }
+.header { text-align:center; padding:28px 20px; background:rgba(0,200,150,0.07); border-radius:20px; border:1px solid rgba(0,200,150,0.2); margin-bottom:22px; }
+.header h1 { color:#00c896; font-size:1.8em; margin-bottom:6px; }
+.header .sub { color:#88ccbb; font-size:0.95em; }
+.header .badge { display:inline-block; margin-top:8px; background:rgba(0,200,150,0.1); color:#00c896; border:1px solid #00c89644; padding:4px 14px; border-radius:20px; font-size:0.82em; }
+.progress-bar { background:rgba(255,255,255,0.08); border-radius:10px; height:7px; margin-bottom:20px; }
+.progress-fill { height:7px; background:linear-gradient(90deg,#00c896,#0088cc); border-radius:10px; transition:width 0.4s; }
+/* NMEA example banner */
+.nmea-banner { background:rgba(0,0,0,0.4); border:1px solid #00c89633; border-radius:12px; padding:14px 18px; margin-bottom:20px; font-family:'Courier New',monospace; font-size:0.88em; color:#00c896; overflow-x:auto; }
+.nmea-banner span { color:#88ccbb; }
+.question-card { background:rgba(255,255,255,0.05); border-radius:16px; border:1px solid rgba(255,255,255,0.1); padding:26px; margin-bottom:16px; }
+.q-header { display:flex; justify-content:space-between; margin-bottom:12px; }
+.q-num { color:#88ccbb; font-size:0.82em; font-weight:600; }
+.q-diff { font-size:0.75em; padding:3px 10px; border-radius:10px; }
+.diff-easy { background:#1a3a2a; color:#6bcf9f; }
+.diff-medium { background:#2a2a1a; color:#c8b86f; }
+.diff-hard { background:#3a1a1a; color:#cf6f6f; }
+.q-text { color:#e0eef8; font-size:1.04em; line-height:1.5; margin-bottom:16px; }
+.nmea-example { font-family:'Courier New',monospace; background:rgba(0,0,0,0.35); color:#00c896; padding:8px 12px; border-radius:7px; font-size:0.9em; margin-bottom:14px; border-left:3px solid #00c896; }
+.options { display:flex; flex-direction:column; gap:9px; }
+.opt { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); border-radius:10px; padding:11px 15px; cursor:pointer; transition:all 0.2s; }
+.opt:hover { background:rgba(0,200,150,0.08); border-color:#00c89644; }
+.opt input { accent-color:#00c896; width:15px; height:15px; cursor:pointer; }
+.opt label { color:#c0d8e8; cursor:pointer; line-height:1.4; font-size:0.97em; }
+.opt.correct { background:#1a3a2a55; border-color:#6bcf9f; }
+.opt.correct label { color:#6bcf9f; }
+.opt.wrong { background:#3a1a1a55; border-color:#cf6f6f; }
+.opt.wrong label { color:#cf6f6f; }
+.feedback { margin-top:12px; padding:11px 15px; border-radius:9px; font-size:0.9em; line-height:1.5; }
+.feedback.correct-fb { background:#1a3a2a55; color:#6bcf9f; border:1px solid #6bcf9f44; }
+.feedback.wrong-fb { background:#3a1a1a55; color:#cf6f6f; border:1px solid #cf6f6f44; }
+.submit-btn { width:100%; padding:15px; font-size:1.08em; font-weight:700; background:linear-gradient(135deg,#00c896,#0088cc); color:#0d1b2a; border:none; border-radius:12px; cursor:pointer; margin-top:8px; transition:opacity 0.2s; }
+.submit-btn:hover { opacity:0.9; }
+.score-card { display:none; text-align:center; background:rgba(255,255,255,0.06); border-radius:20px; border:1px solid rgba(0,200,150,0.2); padding:40px; margin-top:20px; }
+.score-number { font-size:4em; font-weight:700; color:#00c896; }
+.score-label { color:#88ccbb; font-size:1.05em; margin-top:6px; }
+.score-msg { color:#c0d8e8; margin-top:14px; }
+.retry-btn { margin-top:22px; padding:11px 30px; font-size:0.95em; background:rgba(0,200,150,0.1); color:#00c896; border:1px solid #00c89644; border-radius:10px; cursor:pointer; }
+.branding { text-align:center; color:rgba(255,255,255,0.25); font-size:0.78em; margin-top:18px; padding-bottom:18px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>📡 NMEA Sentence Quiz</h1>
+    <div class="sub">Understanding GPS/GNSS Data Sentences</div>
+    <div class="badge">BIP26 SENSATE-X 2.0 | TU Dublin</div>
+  </div>
+  <div class="nmea-banner">
+    <span>Example NMEA sentence: </span>$GNGGA,123519,5320.1234,N,00615.5678,W,1,08,0.9,85.4,M,48.6,M,,*47
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+  <div id="quiz-body"></div>
+  <button class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+  <div class="score-card" id="score-card">
+    <div class="score-number" id="score-num"></div>
+    <div class="score-label">out of 25 questions correct</div>
+    <div class="score-msg" id="score-msg"></div>
+    <button class="retry-btn" onclick="retakeQuiz()">Retake Quiz</button>
+  </div>
+  <div class="branding">BIP26 SENSATE-X 2.0 | TU Dublin Tallaght Campus | Gerard Stockil | June 2026</div>
+</div>
+<script>
+const questions = [
+  // EASY
+  { q:"What does NMEA stand for?", opts:["National Marine Electronics Association","Network Message Exchange Architecture","Navigation Management Engineering Array","Nordic Maritime Electronics Authority"], ans:0, diff:"easy", ex:null },
+  { q:"What character does every NMEA sentence begin with?", opts:["@","#","$","!"], ans:2, diff:"easy", ex:"$GPGGA,..." },
+  { q:"What does GGA stand for in $GPGGA?", opts:["GPS General Accuracy","Global Positioning System Fix Data","Ground Position and Geometry Analysis","GPS Geographic Altitude"], ans:1, diff:"easy", ex:"$GPGGA,123519,5320.12,N,00615.56,W,1,08,0.9,85.4,M,..." },
+  { q:"What does RMC stand for in $GPRMC?", opts:["Remote Monitoring Channel","Receiver Mode Control","Recommended Minimum Navigation Information","Radio Magnetic Compass"], ans:2, diff:"easy", ex:"$GPRMC,123519,A,5320.12,N,00615.56,W,..." },
+  { q:"What does GSV stand for?", opts:["GPS System Version","Satellites in View","Ground Speed and Velocity","GPS Signal Validation"], ans:1, diff:"easy", ex:"$GAGSV,2,1,07,02,45,123,38,..." },
+  { q:"What does GSA stand for?", opts:["GPS Satellite Array","GNSS DOP and Active Satellites","Ground Station Accuracy","GPS Signal Amplitude"], ans:1, diff:"easy", ex:"$GNGSA,A,3,02,05,09,11,14,16,,,,,,,1.2,0.9,0.8*XX" },
+  { q:"What does the * symbol separate in an NMEA sentence?", opts:["Latitude and longitude","The sentence data from the checksum","The talker ID from the sentence type","Time from date"], ans:1, diff:"easy", ex:"$GPGGA,...,data...*4F" },
+  { q:"What is the standard baud rate for NMEA 0183 communication?", opts:["9600","115200","4800","38400"], ans:0, diff:"easy", ex:null },
+  // MEDIUM
+  { q:"What does the talker ID 'GA' represent in $GAGSV?", opts:["GPS (USA)","Galileo (EU)","GLONASS (Russia)","BeiDou (China)"], ans:1, diff:"medium", ex:"$GAGSV = Galileo Satellites in View" },
+  { q:"What does the talker ID 'GL' represent?", opts:["Galileo","GLONASS","GPS Legacy","Ground Level"], ans:1, diff:"medium", ex:"$GLGSV = GLONASS Satellites in View" },
+  { q:"What does the talker ID 'GB' represent?", opts:["GPS Backup","BeiDou","Galileo Broadcast","Ground Base"], ans:1, diff:"medium", ex:"$GBGSV = BeiDou Satellites in View" },
+  { q:"What does the talker ID 'GN' indicate?", opts:["GPS Network","Mixed constellation (multiple systems combined)","Galileo Navigation","Ground Node"], ans:1, diff:"medium", ex:"$GNGGA = Fix data using multiple constellations" },
+  { q:"In a GGA sentence, what does a fix quality of '1' mean?", opts:["No fix","GPS fix","Differential GPS fix","RTK fixed"], ans:1, diff:"medium", ex:"....,1,08,... — field 6 is fix quality" },
+  { q:"What does SNR measure in a GSV sentence?", opts:["Satellite orbital speed","Signal to Noise Ratio — signal quality in dBHz","Satellite number reference","Standard Navigation Range"], ans:1, diff:"medium", ex:"$GAGSV,...,02,45,123,38,... — last field is SNR" },
+  { q:"In NMEA coordinates, 5320.1234 N means:", opts:["53.201234 degrees North","53 degrees 20.1234 minutes North","5320 metres North","53.20 degrees 1234 seconds North"], ans:1, diff:"medium", ex:"Format is DDMM.MMMM — degrees then minutes" },
+  { q:"What does the GLL sentence provide?", opts:["Ground Level Latitude","Geographic Position — Latitude and Longitude","GPS Link Level","Ground Loop Location"], ans:1, diff:"medium", ex:"$GPGLL,5320.12,N,00615.56,W,123519,A*XX" },
+  { q:"What does the VTG sentence report?", opts:["Vertical Track Geometry","Course Over Ground and Ground Speed","Voltage and Temperature Gauge","Vehicle Tracking Grid"], ans:1, diff:"medium", ex:"$GPVTG,054.7,T,034.4,M,005.5,N,010.2,K*48" },
+  { q:"What does HDOP measure?", opts:["Height above sea level","Horizontal Dilution of Precision — horizontal accuracy estimate","High Definition Output Protocol","Heading Direction of Positioning"], ans:1, diff:"medium", ex:"HDOP < 1 = ideal, < 2 = excellent, > 5 = poor" },
+  // HARD
+  { q:"How is the NMEA checksum calculated?", opts:["Sum of all ASCII values in the sentence","XOR of all characters between $ and *","MD5 hash of the sentence","CRC-16 of the full sentence"], ans:1, diff:"hard", ex:"XOR all bytes between $ and * → two hex digits" },
+  { q:"A GSV sentence can describe a maximum of how many satellites per sentence?", opts:["2","4","8","12"], ans:1, diff:"hard", ex:"$GAGSV,2,1,07,prn,el,az,snr,prn,el,az,snr,prn,el,az,snr,prn,el,az,snr*XX" },
+  { q:"What does PDOP stand for and when is it useful?", opts:["Position Dilution of Precision — overall 3D accuracy estimate","Pulse Duration of Positioning","Precise Differential Output Protocol","Positional Delay of Processing"], ans:0, diff:"hard", ex:"PDOP combines horizontal and vertical DOP into one value" },
+  { q:"In the $PQTMVERNO sentence from a Quectel LC29H, what information is returned?", opts:["Satellite count","Firmware version, build date and time","Current position","OSNMA authentication status"], ans:1, diff:"hard", ex:"$PQTMVERNO,LC29HAANR11A02S,2025/10/15,09:30:00*XX" },
+  { q:"What does a blank SNR field in a GSV sentence indicate?", opts:["The satellite is very close to the horizon","The satellite is not currently being tracked","The receiver is in low power mode","The signal is too strong to measure"], ans:1, diff:"hard", ex:"Empty SNR = satellite visible but not tracked" },
+  { q:"What is the purpose of the ZDA sentence?", opts:["Zone Direction Azimuth","Time and Date with UTC offset and local time zone","Zero Doppler Adjustment","Zone Distance and Altitude"], ans:1, diff:"hard", ex:"$GPZDA,201530.00,04,07,2026,+01,00*6E" },
+  { q:"In a GGA sentence, the field 'M' following altitude refers to:", opts:["Magnetic North","Metres — the unit of the altitude value","Mode of the fix","Millihertz SNR"], ans:1, diff:"hard", ex:"$GPGGA,...,85.4,M,... — altitude 85.4 metres" },
+];
+
+let answered = [];
+function buildQuiz() {
+  const body = document.getElementById('quiz-body');
+  body.innerHTML = '';
+  answered = new Array(questions.length).fill(null);
+  questions.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = `card-${i}`;
+    const dc = `diff-${q.diff}`;
+    const dl = q.diff.charAt(0).toUpperCase()+q.diff.slice(1);
+    const ex = q.ex ? `<div class="nmea-example">${q.ex}</div>` : '';
+    const opts = q.opts.map((o,j)=>`
+      <div class="opt" id="opt-${i}-${j}">
+        <input type="radio" name="q${i}" id="q${i}r${j}" value="${j}" onchange="sel(${i},${j})">
+        <label for="q${i}r${j}">${o}</label>
+      </div>`).join('');
+    card.innerHTML = `
+      <div class="q-header"><span class="q-num">Q${i+1} of ${questions.length}</span><span class="q-diff ${dc}">${dl}</span></div>
+      <div class="q-text">${q.q}</div>${ex}
+      <div class="options">${opts}</div>
+      <div class="feedback" id="fb-${i}" style="display:none"></div>`;
+    body.appendChild(card);
+  });
+}
+function sel(qi,oi){ answered[qi]=oi; const n=answered.filter(a=>a!==null).length; document.getElementById('progress').style.width=(n/questions.length*100)+'%'; }
+function submitQuiz(){
+  let score=0;
+  questions.forEach((q,i)=>{
+    const sel=answered[i]; const fb=document.getElementById(`fb-${i}`);
+    for(let j=0;j<q.opts.length;j++){
+      const o=document.getElementById(`opt-${i}-${j}`);
+      const inp=document.querySelector(`#q${i}r${j}`);
+      if(inp) inp.disabled=true;
+      if(j===q.ans) o.classList.add('correct');
+      else if(j===sel&&sel!==q.ans) o.classList.add('wrong');
+    }
+    fb.style.display='block';
+    if(sel===null){ fb.className='feedback wrong-fb'; fb.textContent='⚠ Not answered. Correct: '+q.opts[q.ans]; }
+    else if(sel===q.ans){ score++; fb.className='feedback correct-fb'; fb.textContent='✓ Correct!'; }
+    else{ fb.className='feedback wrong-fb'; fb.textContent='✗ Incorrect. Correct answer: '+q.opts[q.ans]; }
+  });
+  document.getElementById('submit-btn').style.display='none';
+  const sc=document.getElementById('score-card');
+  sc.style.display='block';
+  document.getElementById('score-num').textContent=score;
+  const pct=Math.round(score/questions.length*100);
+  const msgs=[[0,49,"Keep studying — review the tutorial notes on NMEA sentences!"],[50,69,"Good effort! Review the field formats and try again."],[70,84,"Well done — solid understanding of NMEA!"],[85,100,"Excellent! Outstanding knowledge of GNSS data formats."]];
+  document.getElementById('score-msg').textContent=msgs.find(m=>pct>=m[0]&&pct<=m[1])[2];
+  sc.scrollIntoView({behavior:'smooth'});
+}
+function retakeQuiz(){ document.getElementById('score-card').style.display='none'; document.getElementById('submit-btn').style.display='block'; buildQuiz(); window.scrollTo({top:0,behavior:'smooth'}); }
+buildQuiz();
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to Galileo: Europe's GNSS</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
+  min-height:100vh; padding:20px;
+}
+.stars { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+.star { position:absolute; background:white; border-radius:50%; animation:twinkle 3s infinite alternate; }
+@keyframes twinkle { from{opacity:0.2} to{opacity:1} }
+.container { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+.header {
+  text-align:center; padding:30px 20px;
+  background:rgba(255,255,255,0.05); border-radius:20px;
+  border:1px solid rgba(255,255,255,0.1); margin-bottom:24px;
+}
+.header h1 { color:#e2b96f; font-size:1.8em; margin-bottom:6px; }
+.header .sub { color:#a8d8ea; font-size:1em; }
+.header .badge { display:inline-block; margin-top:10px; background:#e2b96f22; color:#e2b96f;
+  border:1px solid #e2b96f55; padding:4px 14px; border-radius:20px; font-size:0.85em; }
+.progress-bar { background:rgba(255,255,255,0.1); border-radius:10px; height:8px; margin-bottom:20px; }
+.progress-fill { height:8px; background:linear-gradient(90deg,#e2b96f,#a8d8ea); border-radius:10px; transition:width 0.4s; }
+.question-card {
+  background:rgba(255,255,255,0.07); border-radius:16px;
+  border:1px solid rgba(255,255,255,0.12); padding:28px; margin-bottom:18px;
+}
+.q-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+.q-num { color:#a8d8ea; font-size:0.85em; font-weight:600; }
+.q-diff { font-size:0.75em; padding:3px 10px; border-radius:10px; }
+.diff-easy { background:#1a4a2a; color:#6bcf8f; }
+.diff-medium { background:#4a3a1a; color:#e2b96f; }
+.diff-hard { background:#4a1a1a; color:#e28080; }
+.q-text { color:#e8eaf6; font-size:1.05em; line-height:1.5; margin-bottom:18px; }
+.options { display:flex; flex-direction:column; gap:10px; }
+.opt {
+  display:flex; align-items:center; gap:12px;
+  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px; padding:12px 16px; cursor:pointer; transition:all 0.2s;
+}
+.opt:hover { background:rgba(255,255,255,0.1); border-color:#a8d8ea55; }
+.opt input { accent-color:#a8d8ea; width:16px; height:16px; cursor:pointer; }
+.opt label { color:#c8cfe8; cursor:pointer; line-height:1.4; }
+.opt.correct { background:#1a4a2a55; border-color:#6bcf8f; }
+.opt.correct label { color:#6bcf8f; }
+.opt.wrong { background:#4a1a1a55; border-color:#e28080; }
+.opt.wrong label { color:#e28080; }
+.feedback { margin-top:14px; padding:12px 16px; border-radius:10px; font-size:0.92em; line-height:1.5; }
+.feedback.correct-fb { background:#1a4a2a55; color:#6bcf8f; border:1px solid #6bcf8f44; }
+.feedback.wrong-fb { background:#4a1a1a55; color:#e28080; border:1px solid #e2808044; }
+.submit-btn {
+  width:100%; padding:16px; font-size:1.1em; font-weight:700;
+  background:linear-gradient(135deg,#e2b96f,#a8d8ea); color:#1a1a2e;
+  border:none; border-radius:12px; cursor:pointer; margin-top:10px; transition:opacity 0.2s;
+}
+.submit-btn:hover { opacity:0.9; }
+.submit-btn:disabled { opacity:0.5; cursor:not-allowed; }
+.score-card {
+  display:none; text-align:center;
+  background:rgba(255,255,255,0.07); border-radius:20px;
+  border:1px solid rgba(255,255,255,0.15); padding:40px; margin-top:20px;
+}
+.score-number { font-size:4em; font-weight:700; color:#e2b96f; }
+.score-label { color:#a8d8ea; font-size:1.1em; margin-top:6px; }
+.score-msg { color:#c8cfe8; margin-top:16px; font-size:1.05em; }
+.retry-btn {
+  margin-top:24px; padding:12px 32px; font-size:1em;
+  background:rgba(255,255,255,0.1); color:#a8d8ea;
+  border:1px solid #a8d8ea55; border-radius:10px; cursor:pointer;
+}
+.retry-btn:hover { background:rgba(255,255,255,0.15); }
+.branding { text-align:center; color:rgba(255,255,255,0.3); font-size:0.8em; margin-top:20px; padding-bottom:20px; }
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="container">
+  <div class="header">
+    <h1>🛰️ Introduction to Galileo</h1>
+    <div class="sub">Europe's Global Navigation Satellite System (GNSS)</div>
+    <div class="badge">BIP26 SENSATE-X 2.0 | TU Dublin</div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+  <div id="quiz-body"></div>
+  <button class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+  <div class="score-card" id="score-card">
+    <div class="score-number" id="score-num"></div>
+    <div class="score-label">out of 30 questions correct</div>
+    <div class="score-msg" id="score-msg"></div>
+    <button class="retry-btn" onclick="retakeQuiz()">Retake Quiz</button>
+  </div>
+  <div class="branding">BIP26 SENSATE-X 2.0 | TU Dublin Tallaght Campus | Gerard Stockil | June 2026</div>
+</div>
+<script>
+const questions = [
+  // EASY
+  { q:"What does GNSS stand for?", opts:["Global Navigation Satellite System","General Network Satellite Service","Ground Navigation Signal System","Global Network Signal Station"], ans:0, diff:"easy" },
+  { q:"Which continent developed the Galileo navigation system?", opts:["North America","Asia","Europe","Australia"], ans:2, diff:"easy" },
+  { q:"Which organisation manages the Galileo programme?", opts:["NASA","ESA and the European Union","United Nations","CERN"], ans:1, diff:"easy" },
+  { q:"What is the primary purpose of a GNSS system like Galileo?", opts:["Broadcasting television signals","Providing positioning, navigation, and timing services","Monitoring weather patterns","Enabling mobile phone calls"], ans:1, diff:"easy" },
+  { q:"Which country operates the GPS navigation system?", opts:["United Kingdom","Russia","United States","France"], ans:2, diff:"easy" },
+  { q:"Russia operates which GNSS constellation?", opts:["BeiDou","QZSS","GLONASS","NavIC"], ans:2, diff:"easy" },
+  { q:"China's global navigation satellite system is called:", opts:["Galileo","BeiDou","GLONASS","IRNSS"], ans:1, diff:"easy" },
+  { q:"Galileo satellites orbit at approximately what altitude?", opts:["500 km","2,000 km","23,222 km","36,000 km"], ans:2, diff:"easy" },
+  { q:"Approximately how many satellites does the full Galileo constellation have?", opts:["12","24","30","72"], ans:2, diff:"easy" },
+  // MEDIUM
+  { q:"What makes Galileo different from GPS in terms of control?", opts:["Galileo uses more satellites","Galileo is civilian-controlled, GPS is primarily military-controlled","Galileo is faster","Galileo covers fewer regions"], ans:1, diff:"medium" },
+  { q:"What is the name of Galileo's free service available to all users?", opts:["Public Regulated Service","High Accuracy Service","Open Service","Search and Rescue Service"], ans:2, diff:"medium" },
+  { q:"What does HAS stand for in the context of Galileo?", opts:["High Altitude Service","High Accuracy Service","Horizontal Accuracy Standard","Hybrid Acquisition System"], ans:1, diff:"medium" },
+  { q:"Which Galileo service is encrypted and reserved for government use?", opts:["Open Service","Commercial Service","Public Regulated Service","Search and Rescue Service"], ans:2, diff:"medium" },
+  { q:"What accuracy can Galileo's High Accuracy Service (HAS) achieve?", opts:["10 metres","5 metres","Sub-metre (better than 20 cm)","1 kilometre"], ans:2, diff:"medium" },
+  { q:"What type of orbit do Galileo satellites use?", opts:["Low Earth Orbit (LEO)","Medium Earth Orbit (MEO)","Geostationary Orbit (GEO)","Highly Elliptical Orbit (HEO)"], ans:1, diff:"medium" },
+  { q:"What technology do Galileo satellites carry to provide highly accurate timing?", opts:["Quartz oscillators","Atomic clocks","GPS receivers","Solar timing arrays"], ans:1, diff:"medium" },
+  { q:"OSNMA stands for:", opts:["Open Service Navigation Message Authentication","Orbital Satellite Navigation and Monitoring Array","Open Standard NMEA Authentication","Onboard Satellite Navigation Management Algorithm"], ans:0, diff:"medium" },
+  { q:"What is the primary purpose of OSNMA?", opts:["To increase positioning accuracy","To prevent signal spoofing and authenticate navigation data","To reduce satellite power consumption","To enable inter-satellite communication"], ans:1, diff:"medium" },
+  { q:"Which frequency band does Galileo use for its E1 signal?", opts:["L1 (1575.42 MHz)","L2 (1227.60 MHz)","L5 (1176.45 MHz)","S band (2.4 GHz)"], ans:0, diff:"medium" },
+  { q:"Galileo's Search and Rescue service is part of which international programme?", opts:["INTERPOL","Cospas-Sarsat","NATO","UN Emergency Response"], ans:1, diff:"medium" },
+  { q:"What is the Galileo ground segment responsible for?", opts:["Launching satellites","Controlling and monitoring the satellite constellation","Manufacturing receivers","Broadcasting TV signals via satellite"], ans:1, diff:"medium" },
+  { q:"Which city hosts the main Galileo Control Centre?", opts:["Paris","Rome","Oberpfaffenhofen, Germany (and Fucino, Italy)","Brussels"], ans:2, diff:"medium" },
+  // HARD
+  { q:"Which cryptographic protocol underpins OSNMA authentication?", opts:["HTTPS/TLS","TESLA (Timed Efficient Stream Loss-tolerant Authentication)","AES-256","RSA public-key encryption"], ans:1, diff:"hard" },
+  { q:"What is the orbital period of a Galileo satellite?", opts:["90 minutes","12 hours","14 hours 4 minutes","24 hours"], ans:2, diff:"hard" },
+  { q:"Galileo's dual-frequency Open Service transmits on which two bands?", opts:["E1 and E5","L1 and L2","E6 and E5b","GPS L1 and GLONASS G1"], ans:0, diff:"hard" },
+  { q:"What is the TESLA protocol designed to defend against in OSNMA?", opts:["Satellite collisions","Signal jamming and spoofing attacks","Power surges","Atmospheric interference"], ans:1, diff:"hard" },
+  { q:"How many orbital planes does the Galileo constellation use?", opts:["2","3","6","12"], ans:1, diff:"hard" },
+  { q:"What does the Galileo E6 signal primarily provide?", opts:["Basic positioning only","High accuracy corrections and authentication (HAS/PRS)","Weather data","Emergency broadcast"], ans:1, diff:"hard" },
+  { q:"Galileo uses passive hydrogen maser (PHM) clocks. What accuracy do these achieve?", opts:["1 second per year","1 millisecond per day","Better than 1 nanosecond per day","1 microsecond per hour"], ans:2, diff:"hard" },
+  { q:"Which of these is TRUE about Galileo interoperability?", opts:["Galileo signals are incompatible with GPS receivers","Modern dual-constellation receivers can use both Galileo and GPS simultaneously","Galileo uses different frequencies to deliberately avoid GPS","Only military receivers can use Galileo and GPS together"], ans:1, diff:"hard" },
+];
+
+let answered = [];
+
+function buildQuiz() {
+  const body = document.getElementById('quiz-body');
+  body.innerHTML = '';
+  answered = new Array(questions.length).fill(null);
+  questions.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = `card-${i}`;
+    const diffClass = `diff-${q.diff}`;
+    const diffLabel = q.diff.charAt(0).toUpperCase() + q.diff.slice(1);
+    const opts = q.opts.map((o, j) => `
+      <div class="opt" id="opt-${i}-${j}">
+        <input type="radio" name="q${i}" id="q${i}r${j}" value="${j}" onchange="selectAnswer(${i},${j})">
+        <label for="q${i}r${j}">${o}</label>
+      </div>`).join('');
+    card.innerHTML = `
+      <div class="q-header">
+        <span class="q-num">Question ${i+1} of ${questions.length}</span>
+        <span class="q-diff ${diffClass}">${diffLabel}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">${opts}</div>
+      <div class="feedback" id="fb-${i}" style="display:none"></div>`;
+    body.appendChild(card);
+  });
+}
+
+function selectAnswer(qi, oi) { answered[qi] = oi; updateProgress(); }
+
+function updateProgress() {
+  const n = answered.filter(a => a !== null).length;
+  document.getElementById('progress').style.width = (n/questions.length*100)+'%';
+}
+
+function submitQuiz() {
+  let score = 0;
+  questions.forEach((q, i) => {
+    const sel = answered[i];
+    const fb = document.getElementById(`fb-${i}`);
+    for (let j = 0; j < q.opts.length; j++) {
+      const optEl = document.getElementById(`opt-${i}-${j}`);
+      const inp = document.querySelector(`#q${i}r${j}`);
+      if (inp) inp.disabled = true;
+      if (j === q.ans) optEl.classList.add('correct');
+      else if (j === sel && sel !== q.ans) optEl.classList.add('wrong');
+    }
+    if (sel === null) {
+      fb.style.display = 'block'; fb.className = 'feedback wrong-fb';
+      fb.textContent = '⚠ Not answered. Correct answer: ' + q.opts[q.ans];
+    } else if (sel === q.ans) {
+      score++;
+      fb.style.display = 'block'; fb.className = 'feedback correct-fb';
+      fb.textContent = '✓ Correct!';
+    } else {
+      fb.style.display = 'block'; fb.className = 'feedback wrong-fb';
+      fb.textContent = '✗ Incorrect. Correct answer: ' + q.opts[q.ans];
+    }
+  });
+  document.getElementById('submit-btn').style.display = 'none';
+  const sc = document.getElementById('score-card');
+  sc.style.display = 'block';
+  document.getElementById('score-num').textContent = score;
+  const pct = Math.round(score/questions.length*100);
+  const msgs = [
+    [0,49,"Keep studying — review the tutorial notes and try again!"],
+    [50,69,"Good effort! Review the harder questions and try again."],
+    [70,84,"Well done — solid understanding of Galileo!"],
+    [85,100,"Excellent! Outstanding knowledge of Europe's GNSS system."]
+  ];
+  document.getElementById('score-msg').textContent = msgs.find(m=>pct>=m[0]&&pct<=m[1])[2];
+  sc.scrollIntoView({behavior:'smooth'});
+}
+
+function retakeQuiz() {
+  document.getElementById('score-card').style.display = 'none';
+  document.getElementById('submit-btn').style.display = 'block';
+  buildQuiz();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Stars
+const starsEl = document.getElementById('stars');
+for (let i=0; i<80; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const sz = Math.random()*2+1;
+  s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
+  starsEl.appendChild(s);
+}
+
+buildQuiz();
+</script>
+</body>
+</html>
