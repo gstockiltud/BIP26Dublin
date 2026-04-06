@@ -17,6 +17,6 @@ This folder contains Arduino programs for BIP26:
 
 ## BIP26 Graphic
 
-![BIP26 Dublin - 6 April 2026](GitHunPhotos6Apr2026.jpg)
+![BIP26 Dublin - 6 April 2026](GitHunPhots6Apr2026.jpg)
 
 *Main photo for the BIP26 Dublin project*
