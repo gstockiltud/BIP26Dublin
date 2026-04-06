@@ -17,3 +17,4 @@ This folder contains Arduino programs for BIP26:
 ## BIP26 Graphic
 
 ![BIP26 Graphic](nqd6T.jpg)
+![BIP26 Graphic](GitHunPhots6Apr2026.jpg)
