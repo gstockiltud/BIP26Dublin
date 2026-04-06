@@ -1,6 +1,6 @@
 # Arduino Code
 
-This folder contains Arduino programs for BIP26:
+This folder contains Arduino programs for BIP26:  
 
 - BlinkTenstar.ino - Rund thge BLINK program on the TenStar board , red LED connected to pin 13
 - NMEATestBasicLongComments,ino - receive NMEA sentences in the serial console, has lots of comments, pelase learn how this work
