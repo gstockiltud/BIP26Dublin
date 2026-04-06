@@ -14,7 +14,9 @@ This folder contains Arduino programs for BIP26:
 - Multi_GNSS_Display.ino - Multi-constellation display
 - Firmware_Version_Check.ino - Check GPS firmware
 - Other files may be added
+
 ## BIP26 Graphic
 
-![BIP26 Graphic](nqd6T.jpg)
-![BIP26 Graphic](GitHunPhots6Apr2026.jpg)
+![BIP26 Dublin - 6 April 2026](GitHunPhotos6Apr2026.jpg)
+
+*Main photo for the BIP26 Dublin project*
