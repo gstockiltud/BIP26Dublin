@@ -1,8 +1,11 @@
+![STMP SENSATE Banner](BIMP26Graphic.png)
+
 # STMP SENSATE (Dublin 2026)
 
 ### `stmp26` `stmp26dublin` `sensate` `upv` `utcluj` `h-da` `unicas` `fh-campus-wien` `tallaght` `tu-dublin` `eut-plus` `tokyo-electron` `tel` `osnma` `esa` `galileo` `short-term-mobility` `erasmus-plus` `esp32-s3` `embedded-systems`
 
-> **Important Notice on Program Nomenclature** > *In alignment with European funding and administrative guidelines, the official designation for this year's initiative has **changed from BIP (Blended Intensive Program) to STMP (Short Term Mobility Program)**.*
+> **Important Notice on Program Nomenclature**  
+> *In alignment with European funding and administrative guidelines, the official designation for this year's initiative has **changed from BIP (Blended Intensive Program) to STMP (Short Term Mobility Program)**.*
 
 This repository hosts technical documentation supporting the **SENSATE** international summer school, run under the **Short Term Mobility Program (STMP)** in Dublin from June 29th to July 4th, 2026. **SENSATE** stands for **SENsors and Software for Applications and Technological Education**. 
 
@@ -31,13 +34,13 @@ This visit allowed our students to see firsthand the intricate interconnection b
 <summary><b>3. Honours our Successful Past Events and New Members (Click to expand)</b></summary>
 
 **Honours our Successful Past Events and New Members:** We extend our deepest gratitude to the visionary coordinators of our previous international events, whose groundwork paved the way for this year's success:
-* **[Valencia, Spain (2023)]():** Prof. Sara Blanc Clavero and the team at the Universitat Politècnica de València (UPV).
-* **[Cluj-Napoca, Romania (2025)]():** Prof. Laura Grindei and the team at the Technical University of Cluj-Napoca (UTCN).
-* **[Darmstadt, Germany (2025/2026)]():** Prof. Dr. Eiken Lübbers and the team at Hochschule Darmstadt (h-da).
+* **[Universitat Politècnica de València (UPV)](https://www.upv.es/) 🇪🇸** – *Valencia, Spain (2023):* Prof. Sara Blanc Clavero and the team.
+* **[Technical University of Cluj-Napoca (UTCN)](https://www.utcluj.ro/) 🇷🇴** – *Cluj-Napoca, Romania (2025):* Prof. Laura Grindei and the team.
+* **[Hochschule Darmstadt (h-da)](https://h-da.de/) 🇩🇪** – *Darmstadt, Germany (2025/2026):* Prof. Dr. Eiken Lübbers and the team.
 
 **A Warm Welcome to Our Newest Partners:** We are thrilled to expand our network this year and extend a special welcome to the faculty and students joining us from:
-* **University of Cassino and Southern Lazio (UNICAS)** – *Italy*
-* **FH Campus Wien** – *Austria*
+* **[University of Cassino and Southern Lazio (UNICAS)](https://www.unicas.it/) 🇮🇹** – *Italy:* Dr. Emanuele Grossi, the team, and some exceptional telecommunications students.
+* **[FH Wien University of Applied Sciences](https://www.fh-wien.ac.at/) 🇦🇹** – *Austria:* Thomas Fischer, the team, and some exceptional advanced manufacturing students. Sincere thanks to Thomas for his excellent contributions to the week right here in Dublin.
 
 **Institutional Logistics:** Our sincere thanks go to the **Erasmus and International Offices across all participating campuses**. Your tireless work is what makes cross-border student mobility a reality.
 </details>
@@ -62,7 +65,7 @@ To ensure our international guests experienced the absolute best of Irish hospit
 
 We also extend our sincere gratitude to the wider team whose daily efforts made this week possible:
 * **The Caretaking and Ancillary Service Staff in Tallaght:** For preparing the venues, ensuring our campuses were exceptionally welcoming, and supporting our daily logistical needs with unmatched good humor.
-* **Administrative Staff across all TU Dublin Campuses:** For managing the intricate administrative details, registrations, and cross-campus coordination flawlessly.
+* **Administrative Staff across all [Technological University Dublin (TU Dublin)](https://www.tudublin.ie/) 🇮🇪 Campuses:** For managing the intricate administrative details, registrations, and cross-campus coordination flawlessly.
 * **Our Catering Teams and Food Suppliers:** For keeping our entire international cohort and staff superbly fueled throughout the week with great meals, refreshments, and outstanding hospitality.
 * **The Technical Support Suite & Academic Staff:** For your invaluable guidance, hardware and laboratory preparation, and unwavering dedication to the students' learning and prototyping experience.
 </details>
