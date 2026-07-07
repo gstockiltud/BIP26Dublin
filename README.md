@@ -56,9 +56,9 @@ Special thanks to **Giedre Simkute**, **Joanna Orlinska**, and all at TEL.
 
 SENSATE has established a prestigious pedigree across Europe, building upon consecutive successful international iterations. We proudly recognize the legacy of our partner network:
 * **The Heritage Track:** Prior highly successful editions were hosted and developed in collaboration with:
-  * **Valencia** (Polytechnic University of Valencia, Spain)
-  * **Cluj-Napoca** (Technical University of Cluj-Napoca, Romania)
-  * **Darmstadt** (Hochschule Darmstadt, Germany) – with special thanks to *Professor Eiken Lübbers* for continuous curriculum collaboration.
+  * **Valencia (2023, Polytechnic University of Valencia, Spain):** Thanks to Professor Sara Blanc Clavero for getting this program started. Your students are very lucky to have you.
+  * **Cluj-Napoca (2024, Technical University of Cluj-Napoca, Romania):** Thanks to Professor Laura Grindei for getting this program started. Your students are very lucky to have you.
+  * **Darmstadt (2025, Hochschule Darmstadt, Germany):** With special thanks to Professor Eiken Lübbers for adding the space theme to SENSATE in 2026 with the exciting rocket launches.
 * **New Network Additions & Thanks:** We extend a warm, official welcome and deep gratitude to our new consortium institutional partners joining the mobility network this year:
   * **FH Campus Wien (Austria):** Thanks to **Thomas Fischer** for his outstanding contribution in Dublin and the excellent students of **Advanced Manufacturing Technology**.
   * **University of Cassino (Italy):** Thanks to **Prof. Emanuele Grossi** and the excellent students in **Telecommunications** who had a natural understanding of satellite signals.
@@ -94,11 +94,11 @@ A unified welcome and massive thank you is extended to all international delegat
 
 ### 🌟 Key Acknowledgments
 The complex organizational architecture, student housing logistics, hardware procurement, and administrative planning would not have been possible without the tireless, dedicated efforts of our core local coordination team:
+* **James Wright** — Head of Electronic & Electromechanical Engineering
+* **Susanne Murphy** — Academic & Administrative Coordination
+* **Dave Maguire** — Technical & Logistical Infrastructure Support
 
-* **Susanne Murphy** — Academic & Administrative Coordination Talalght
-* **Dave Maguire** — Technical & Logistical Infrastructure Support Tallaght 
-
-Thank you both,  for going the extra mile,  you are representative of many, maby  others who made the EUT+ TEL Sponsored  STMP26 SENSATE 6-Nation  Summer Schools an unforgettable educational milestone for many.  It would take too long to mention all bu thank you all.
+Thank you for making STMP26 SENSATE an unforgettable educational milestone!
 </details>
 
 ---
