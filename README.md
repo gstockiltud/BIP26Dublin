@@ -56,9 +56,9 @@ Special thanks to **Giedre Simkute**, **Joanna Orlinska**, and all at TEL.
 
 SENSATE has established a prestigious pedigree across Europe, building upon consecutive successful international iterations. We proudly recognize the legacy of our partner network:
 * **The Heritage Track:** Prior highly successful editions were hosted and developed in collaboration with:
-  * **Valencia (2023, Polytechnic University of Valencia, Spain):** Thanks to Professor Sara Blanc Clavero for getting this program started. Your students are very lucky to have you.
-  * **Cluj-Napoca (2024, Technical University of Cluj-Napoca, Romania):** Thanks to Professor Laura Grindei for getting this program started. Your students are very lucky to have you.
-  * **Darmstadt (2025, Hochschule Darmstadt, Germany):** With special thanks to Professor Eiken Lübbers for adding the space theme to SENSATE in 2026 with the exciting rocket launches.
+  * **Valencia (2023, Polytechnic University of Valencia, Spain):** Thanks to **Prof. Sara Blanc Clavero** for getting this program started. Your students are very lucky to have you.
+  * **Cluj-Napoca (2024, Technical University of Cluj-Napoca, Romania):** Thanks to **Prof. Laura Grindei** for getting this program started. Your students are very lucky to have you.
+  * **Darmstadt (2025, Hochschule Darmstadt, Germany):** With special thanks to **Prof. Dr. Eiken Lübbers** for adding the space theme to SENSATE in 2026 with the exciting rocket launches.
 * **New Network Additions & Thanks:** We extend a warm, official welcome and deep gratitude to our new consortium institutional partners joining the mobility network this year:
   * **FH Campus Wien (Austria):** Thanks to **Thomas Fischer** for his outstanding contribution in Dublin and the excellent students of **Advanced Manufacturing Technology**.
   * **University of Cassino (Italy):** Thanks to **Prof. Emanuele Grossi** and the excellent students in **Telecommunications** who had a natural understanding of satellite signals.
