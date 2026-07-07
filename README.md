@@ -27,6 +27,8 @@ Click on any section header below to expand and view the detailed acknowledgment
 <summary><b>🏛️ 1. Institutional Support, Funding & Industry Sponsorship</b></summary>
 <br>
 
+The STMP course was developed by the School of Electronic and Electrical Engineering at TU Dublin, in close collaboration with our European university partners and with the valued assistance of colleagues from across other academic departments. The program was proudly funded by EUT+ (European University of Technology) and sponsored by Tokyo Electron (TEL).
+
 The incredible success of STMP26 SENSATE was made possible through robust European institutional backing and high-tech industry alignment:
 * **European University of Technology (EUT+):** Providing the foundational cross-continental integration framework for academic alignment and standardized student mobility.
 * **Erasmus+ Short Term Mobility Framework:** Financing and administering the complex logistics required to enable multi-lateral student exchanges.
@@ -34,7 +36,22 @@ The incredible success of STMP26 SENSATE was made possible through robust Europe
 </details>
 
 <details>
-<summary><b>🌍 2. Program History, Heritage & Regional Expansion (Special Tributes)</b></summary>
+<summary><b>🏭 2. Thanks to Tokyo Electron for Industry Link and Sponsorship</b></summary>
+<br>
+
+A very special thank you to TEL (Tokyo Electron) and their training facility in Santry, which our students were the first university group to visit. There they learned first-hand just how important the makers of semiconductor equipment are to modern life.
+
+Tokyo Electron is one of the world's largest suppliers of the precision machinery used to manufacture microchips — the equipment that etches, coats, cleans and processes the silicon wafers at the heart of every phone, computer and satellite receiver. In short, TEL builds the machines that make the chips that power modern life.
+
+TEL is also a genuinely global company, with sites right across Europe, Asia and the Americas — and it actively seeks talented engineers from all disciplines, not just electronics. Mechanical, software, materials, chemical and systems engineers all come together in creative, multidisciplinary teams — exactly the kind of teamwork our students practised this week. For a young engineer, that opens doors all over the world.
+
+Through its "TEL for Good" corporate social responsibility programme, the company also invests in education, community and sustainability — supporting STEM learning and the next generation of engineers, which is very much the spirit behind their support for our summer school.
+
+Special thanks to **Giedre Simkute**, **Joanna Orlinska**, and all at TEL.
+</details>
+
+<details>
+<summary><b>🌍 3. Program History, Heritage & Regional Expansion (Special Tributes)</b></summary>
 <br>
 
 SENSATE has established a prestigious pedigree across Europe, building upon consecutive successful international iterations. We proudly recognize the legacy of our partner network:
@@ -48,7 +65,7 @@ SENSATE has established a prestigious pedigree across Europe, building upon cons
 </details>
 
 <details>
-<summary><b>🚀 3. Technical Curriculum & Student Achievements</b></summary>
+<summary><b>🚀 4. Technical Curriculum & Student Achievements</b></summary>
 <br>
 
 The curriculum challenged students to master advanced embedded architecture, real-time feedback loops, and secure spatial telemetrics:
@@ -60,7 +77,7 @@ The curriculum challenged students to master advanced embedded architecture, rea
 </details>
 
 <details>
-<summary><b>💻 4. Repository Codebase & Core Firmware Applications</b></summary>
+<summary><b>💻 5. Repository Codebase & Core Firmware Applications</b></summary>
 <br>
 
 This repository hosts production-ready firmware skeletons, diagnostic tools, and complete student reference applications located in the primary source folders:
@@ -70,18 +87,18 @@ This repository hosts production-ready firmware skeletons, diagnostic tools, and
 </details>
 
 <details>
-<summary><b>☘️ 5. Host Institution & Logistical Support Pillars (Thank You!)</b></summary>
+<summary><b>☘️ 6. Host Institution & Logistical Support Pillars (Thank You!)</b></summary>
 <br>
 
 A unified welcome and massive thank you is extended to all international delegates from across all campuses of **Technological University Dublin**. This edition was centrally anchored at the **Tallaght Campus**, utilizing state-of-the-art engineering laboratories and collaborative spaces.
 
 ### 🌟 Key Acknowledgments
 The complex organizational architecture, student housing logistics, hardware procurement, and administrative planning would not have been possible without the tireless, dedicated efforts of our core local coordination team:
-* **James Wright** — Head of Electronic & Electromechanical Engineering
-* **Susanne Murphy** — Academic & Administrative Coordination
-* **Dave Maguire** — Technical & Logistical Infrastructure Support
 
-Thank you for making STMP26 SENSATE an unforgettable educational milestone!
+* **Susanne Murphy** — Academic & Administrative Coordination Talalght
+* **Dave Maguire** — Technical & Logistical Infrastructure Support Tallaght 
+
+Thank you both,  for going the extra mile,  you are representative of many, maby  others who made the EUT+ TEL Sponsored  STMP26 SENSATE 6-Nation  Summer Schools an unforgettable educational milestone for many.  It would take too long to mention all bu thank you all.
 </details>
 
 ---
