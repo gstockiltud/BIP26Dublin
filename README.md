@@ -95,13 +95,14 @@ This repository hosts production-ready firmware skeletons, diagnostic tools, and
 A unified welcome and massive thank you is extended to all international delegates from across all campuses of **Technological University Dublin**. This edition was centrally anchored at the **Tallaght Campus**, utilizing state-of-the-art engineering laboratories and collaborative spaces.
 
 ### 🌟 Key Acknowledgments
-The complex organizational architecture, student housing logistics, hardware procurement, and administrative planning would not have been possible without the tireless, dedicated efforts of our core coordination team. 
+The execution of an international program of this scale requires immense dedication. Without the exceptional problem-solving skills and tireless efforts of our local coordination team, this edition would not have been possible:
 
-While it is impossible to thank individually every person who contributed across all participating campuses and our six partner nations, the following individuals truly went the extra mile (or two). They beautifully represent the exceptional spirit of dedication and collaborative teamwork that defines our community:
-* **Susanne Murphy** — Academic & Administrative Coordination
-* **Dave Maguire** — Technical & Logistical Infrastructure Support
+* **Susanne Murphy** — Academic & Administrative Coordination. Susanne single-handedly structured and organized the core administrative architecture, effortlessly managing multi-lateral communications and student logistics.
+* **Dave Maguire** — Technical & Logistical Infrastructure Support. Dave was instrumental in setting up the physical laboratory environments, procuring hardware, and developing the core engineering prototype platforms that enabled hands-on learning.
 * **John Murphy** — Foundational Project Architecture & Technical Insight. John's extensive past work with the European Space Agency (ESA) and his deep expertise in multiband receiver telemetry directly inspired and guided the hardware-level development of this entire project—a rich learning blueprint we are incredibly proud to have shared with our international students.
 * **Dr. David Dorran** — Embedded Systems & DSP Mentorship. David's constant encouragement and expertise inspired a tremendous number of students to actively engage with the intricacies of embedded system architecture and Digital Signal Processing (DSP), laying the academic groundwork for their success this week.
+
+Our deep thanks also go to all the unnamed managers and department heads whose institutional support, vision, and operational approvals behind the scenes made this program a reality.
 
 Thank you for making STMP26 SENSATE at the Tallaght Campus, Dublin, between 29th June and 4th July, an unforgettable and positive experience for many! We are delighted to follow in the tradition of previous outstanding successes in Valencia, Cluj-Napoca, and Darmstadt.
 </details>
