@@ -95,12 +95,13 @@ This repository hosts production-ready firmware skeletons, diagnostic tools, and
 A unified welcome and massive thank you is extended to all international delegates from across all campuses of **Technological University Dublin**. This edition was centrally anchored at the **Tallaght Campus**, utilizing state-of-the-art engineering laboratories and collaborative spaces.
 
 ### 🌟 Key Acknowledgments
-The complex organizational architecture, student housing logistics, hardware procurement, and administrative planning would not have been possible without the tireless, dedicated efforts of our core local coordination team:
-* **James Wright** — Head of Electronic & Electromechanical Engineering
+The complex organizational architecture, student housing logistics, hardware procurement, and administrative planning would not have been possible without the tireless, dedicated efforts of our core coordination team. 
+
+While it is impossible to thank individually every person who contributed across all participating campuses and our six partner nations, the following two individuals truly went the extra mile (or two). They beautifully represent the exceptional spirit of dedication and collaborative teamwork that defines our community:
 * **Susanne Murphy** — Academic & Administrative Coordination
 * **Dave Maguire** — Technical & Logistical Infrastructure Support
 
-Thank you for making STMP26 SENSATE an unforgettable educational milestone!
+Thank you for making STMP26 SENSATE at the Tallaght Campus, Dublin, between 29th June and 4th July, an unforgettable and positive experience for many! We are delighted to follow in the tradition of previous outstanding successes in Valencia, Cluj-Napoca, and Darmstadt.
 </details>
 
 ---
