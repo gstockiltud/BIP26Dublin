@@ -27,7 +27,7 @@ Click on any section header below to expand and view the detailed acknowledgment
 <summary><b>🏛️ 1. Institutional Support, Funding & Industry Sponsorship</b></summary>
 <br>
 
-The STMP course was developed by the School of Electronic and Electrical Engineering at TU Dublin, in close collaboration with our European university partners and with the valued assistance of colleagues from across other academic departments. The program was proudly funded by EUT+ (European University of Technology) and sponsored by Tokyo Electron (TEL).
+The STMP course was developed by the School of Electronic and Electrical Engineering at TU Dublin, in close collaboration with our European university partners and with the valued assistance of colleagues from across other academic departments. The program was proudly funded by EUT+ (European University of Technology), with special appreciation to **Dr. Deirdre McQuillan** at the EUT+ Office, and sponsored by Tokyo Electron (TEL).
 
 The incredible success of STMP26 SENSATE was made possible through robust European institutional backing and high-tech industry alignment:
 * **European University of Technology (EUT+):** Providing the foundational cross-continental integration framework for academic alignment and standardized student mobility.
