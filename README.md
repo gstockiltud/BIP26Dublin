@@ -65,15 +65,17 @@ SENSATE has established a prestigious pedigree across Europe, building upon cons
 </details>
 
 <details>
-<summary><b>🚀 4. Technical Curriculum & Student Achievements</b></summary>
+<summary><b>🚀 4. Technical Curriculum Outline & Sample Student Achievements</b></summary>
 <br>
 
-The curriculum challenged students to master advanced embedded architecture, real-time feedback loops, and secure spatial telemetrics:
+The curriculum challenged students to use advanced embedded architecture, real-time feedback loops, anti-spoofing protections, and telemetry. What tied this together was a dynamic framework of 6-nation teamwork. 
+
+Some selected core curriculum topics include:
 * **Microcontroller Prototyping:** Core development revolved around the high-performance **Tenstar TS-ESP32-S3** dual-core processor using the **Arduino IDE** environment.
-* **Visual Telemetry & Feedback:** Low-level implementation of interactive graphic layouts using **ST7789 TFT Displays** and addressable **NeoPixel RGB LEDs** for dynamic system diagnostics.
-* **Advanced Satellite Navigation (GNSS):** Interfacing with **Waveshare GNSS modules** to handle live multi-constellation positional feeds.
-* **Security & Resilience Focus:** A core lecture and lab framework dedicated to **Galileo Open Service Navigation Message Authentication (OSNMA)**, equipping students to understand, analyze, and build defenses against real-world signal spoofing and jamming vulnerabilities.
-* **AI-Assisted Pedagogy:** Active integration of Generative AI workflows for localized code refactoring, rapid diagnostic debugging, and system-level library integration.
+* **Visual Telemetry & Feedback:** Low-level implementation of interactive graphic layouts using **ST7789 TFT Displays**, alongside sophisticated web displays using SQL, and integrated touch screen interfaces.
+* **Advanced Satellite Navigation (GNSS):** Interfacing with an advanced **GNSS Multiband Receiver** to handle live multi-constellation positional feeds. Students used these streams to track paths, map geographical contours, interface with magnetometers, and even develop interactive games.
+* **Security & Resilience Focus:** A core lecture and lab framework dedicated to **Galileo Open Service Navigation Message Authentication (OSNMA)**, equipping students to understand, analyze, and build protection against real-world signal spoofing and jamming vulnerabilities.
+* **AI-Assisted Pedagogy with 3D Printing and GitHub:** Active integration of Generative AI workflows for localized code refactoring, rapid diagnostic debugging, and system-level library integration. Extensive use was made of **GitHub** for codebase tracking and **3D Printing** for structural prototyping. Our students were amazingly productive working across their multi-disciplinary teams!
 </details>
 
 <details>
