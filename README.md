@@ -6,7 +6,7 @@
 
 This repository hosts technical documentation supporting the **SENSATE** international summer school, run under the **Short Term Mobility Program (STMP)** in Dublin from June 29th to July 4th, 2026. **SENSATE** stands for **SENsors and Software for Applications and Technological Education**. 
 
-Ultimately, this was an event entirely for the students (over 55 of them from 6 countries: Austria, Germany, Italy, Romania, Spain, and Ireland), and it was their dedication, brilliance, and hard work that made it a resounding success. Many of the teams created their own GitHub repositories.
+Ultimately, this was an event entirely for the students (over 55 of them from 6 countries: Austria, Germany, Italy, Romania, Spain, and Ireland), and it was their dedication, brilliance, and hard work that made it a resounding success. Many of the teams created their own GitHub repositories. A special thanks to Dr. Deirdre McQuillan, Principal Representative, European University of Technology, and all her team at EUT+ for making this possible (see [EUT+ Alliance Website](https://www.univ-tech.eu/) and the [TU Dublin EUT+ Hub](https://www.tudublin.ie/explore/about-the-university/european-university-of-technology/)), and to all partner institutes inside and outside EUT+.
 
 ---
 
